@@ -19,14 +19,14 @@ pKR = {'y': 10.07,
     'r': 12.48,
     'd': 3.65,
     'e': 4.25
-}
+} 
 
 # Exercise 2
 # count the numbers of each amino acid
 
 # sample usage of count() by counting count Y amino acids in insulin
 # identifies only a single entity
-# float(insulin.count("Y"))
+#float(insulin.count("Y"))
 
 # identify all entities from a list
 seqCount = ({x: float(insulin.count(x)) for x in ['y','c','k','h','r','d','e']})
@@ -45,3 +45,4 @@ while (pH <= 14):
     )
     print('{0:.2f}'.format(pH), netCharge)
     pH += 1
+    
