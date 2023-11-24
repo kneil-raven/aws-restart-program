@@ -1,0 +1,217 @@
+**Schema (MySQL v5.7)**
+
+    -- Day 35 - Lab Activity
+    
+    -- table for Students
+    CREATE TABLE Students (
+      `Student_ID` INT PRIMARY KEY,
+      `Student_Name` VARCHAR(50),
+      `Date_of_Birth` DATE,
+      `Grade_level` INT,
+      `Phone_Number` BIGINT,
+      `Email_Address` VARCHAR(50)
+    );
+    
+    
+    -- table for Courses
+    CREATE TABLE Courses (
+      `Course_ID` INT(5) PRIMARY KEY,
+      `Course_Name` VARCHAR(50),
+      `Course_Description` VARCHAR(150),
+      `Credits` INT,
+      `Teacher_ID` INT
+    );
+    
+    
+    -- table for Enrollments
+    CREATE TABLE Enrollment (
+      `Enrollment_ID` INT(10) PRIMARY KEY,
+      `Enrollment_Date` DATE,
+      `Student_ID` INT,
+      `Course_ID` INT(5)
+    );
+    
+    
+    -- table for Teachers
+    CREATE TABLE Teachers (
+      `Teacher_ID` INT PRIMARY KEY,
+      `Teacher_Name` VARCHAR(50),
+      `Teacher_email` VARCHAR(50),
+      `Department_ID` INT
+    );
+    
+    
+    -- table for Departments
+    CREATE TABLE Departments (
+      `Department_ID` INT PRIMARY KEY,
+      `Department_Name` VARCHAR(50)
+    );
+
+---
+
+**Query #1**
+**-- populate Students table**
+
+    INSERT INTO Students VALUES
+        (2301, 'Monkey D. Luffy', '2000-05-05', 1, 09234555555, 'luffy@example.com'),
+        (2302, 'Roronoa Zoro', '1980-11-11', 2, '09234555556', 'zoro@example.com'),
+        (2303, 'Nami', '1990-07-03', 3, '09234555557', 'nami@example.com'),
+        (2304, 'Usopp', '1986-04-01', 3, '09234555558', 'usopp@example.com'),
+      	(2305, 'Sanji', '1985-03-02', 2, '09234555559', 'sanji@example.com'),
+      	(2306, 'Tony Tony Chopper', '2003-12-24', 3, '09234555560', 'chopper@example.com'),
+      	(2307, 'Nico Robin', '1979-02-06', 3, '09234555561', 'robin@example.com'),
+      	(2308, 'Franky', '1984-03-09', 3, '09234555562', 'franky@example.com'),
+      	(2309, 'Brook', '1980-04-03', 3, '09234555563', 'brook@example.com'),
+      	(2310, 'Jinbe', '1972-04-02', 2, '09234555564', 'jinbe@example.com'),
+        (2311, 'Shanks', '1976-03-09', 1, '09234555565', 'shanks@example.com'),
+      	(2312, 'Ben Beckman', '1974-08-22', 1, '09234555566', 'ben@example.com'),
+      	(2313, 'Yasopp', '1972-02-06', 2, '09234555567', 'yasopp@example.com'),
+      	(2314, 'Lucky Roo', '1975-11-11', 2, '09234555568', 'roo@example.com'),
+        (2315, 'Monkey D. Dragon', '1973-12-12', 1, '09234555579', 'dragon@example.com'),
+      	(2316, 'Sabo', '1985-03-20', 1, '09234555580', 'sabo@example.com'),
+      	(2317, 'Koala', '1990-04-04', 2, '09234555581', 'koala@example.com'),
+        (2318, 'Hack', '1988-07-29', 2, '09234555582', 'hack@example.com'),
+      	(2319, 'Emporio Ivankov', '1972-03-04', 2, '09234555586', 'ivankov@example.com'),
+      	(2320, 'Kuma', '1975-11-20', 2, '09234555588', 'kuma@example.com');
+
+There are no results to be displayed.
+
+---
+**Query #2**
+**-- populate Courses values**
+
+    INSERT INTO Courses VALUES
+      (101, 'Haki Technology', 'Specializes in Mastering Haki', 80, 401),
+      (102, 'Physical Enhancement', 'Specializes in Mastering the body', 60, 402),
+      (103, 'Technological Advancement', 'Specializes in Mastering the Technology', 50, 403),
+      (104, 'Devil Fruit Analysis', 'Specializes in Mastering their Devil Fruit', 70, 404);
+
+There are no results to be displayed.
+
+---
+**Query #3**
+**-- populate Enrollment table**
+
+    INSERT INTO Enrollment VALUES
+      (1, '2023-01-01', 2301, 101),
+      (2, '2023-04-17', 2302, 102),
+      (3, '2023-01-15', 2303, 103),
+      (4, '2023-01-25', 2304, 103),
+      (5, '2023-01-13', 2305, 102),
+      (6, '2023-01-01', 2306, 103),
+      (7, '2023-02-15', 2307, 103),
+      (8, '2023-04-04', 2308, 101),
+      (9, '2023-01-10', 2309, 103),
+      (10,'2023-01-02', 2310, 102),
+      (11,'2023-01-01', 2311, 101),
+      (12,'2023-01-03', 2312, 101),
+      (13,'2023-01-05', 2313, 103),
+      (14,'2023-01-02', 2314, 101),
+      (15,'2023-01-06', 2315, 104),
+      (16,'2023-01-02', 2316, 104),
+      (17,'2023-01-06', 2317, 102),
+      (18,'2023-01-02', 2318, 104),
+      (19,'2023-01-03', 2319, 104),
+      (20,'2023-01-02', 2320, 103);
+
+There are no results to be displayed.
+
+---
+**Query #4**
+**-- insert data to Teachers table**
+
+    INSERT INTO Teachers VALUES
+      (401, 'Gol D. Roger', 'pirateking@awesome.me', 201),
+      (402, 'Monkey D. Garp', 'grandretard@sample.me', 202),
+      (403, 'Gol D. Roger', 'pirateking@awesome.me', 203),
+      (404, 'Imu', 'neverhavebeenrevealed@secret.com', 204);
+
+There are no results to be displayed.
+
+---
+**Query #5**
+**-- insert data to Department table**
+
+    INSERT INTO Departments VALUES
+      (201, 'Haki Department'),
+      (202, 'Physical Department'),
+      (203, 'Technology Department'),
+      (204, 'Devil Fruit Department');
+
+There are no results to be displayed.
+
+---
+**Query #6**
+**-- Retrieve all students enrolled in a specific course.**
+
+    SELECT Enrollment.Course_ID AS CourseID, Course_Name AS Course, Student_Name AS StudentName
+    FROM Students
+    INNER JOIN Enrollment 
+    ON Students.Student_ID = Enrollment.Student_ID
+    INNER JOIN Courses
+    ON Enrollment.Course_ID = Courses.Course_ID
+    WHERE Enrollment.Course_ID = 101;
+
+| CourseID | Course          | StudentName     |
+| -------- | --------------- | --------------- |
+| 101      | Haki Technology | Monkey D. Luffy |
+| 101      | Haki Technology | Franky          |
+| 101      | Haki Technology | Shanks          |
+| 101      | Haki Technology | Ben Beckman     |
+| 101      | Haki Technology | Lucky Roo       |
+
+---
+**Query #7**
+**-- Find the total number of credits taken by each student.**
+
+    SELECT Students.Student_ID, Student_Name AS StudentName, SUM(Courses.Credits) AS TotalCredits
+    FROM Students
+    INNER JOIN Enrollment 
+    ON Students.Student_ID = Enrollment.Student_ID
+    INNER JOIN Courses
+    ON Enrollment.Course_ID = Courses.Course_ID
+    GROUP BY Students.Student_ID, Student_Name;
+
+| Student_ID | StudentName       | TotalCredits |
+| ---------- | ----------------- | ------------ |
+| 2301       | Monkey D. Luffy   | 80           |
+| 2302       | Roronoa Zoro      | 60           |
+| 2303       | Nami              | 50           |
+| 2304       | Usopp             | 50           |
+| 2305       | Sanji             | 60           |
+| 2306       | Tony Tony Chopper | 50           |
+| 2307       | Nico Robin        | 50           |
+| 2308       | Franky            | 80           |
+| 2309       | Brook             | 50           |
+| 2310       | Jinbe             | 60           |
+| 2311       | Shanks            | 80           |
+| 2312       | Ben Beckman       | 80           |
+| 2313       | Yasopp            | 50           |
+| 2314       | Lucky Roo         | 80           |
+| 2315       | Monkey D. Dragon  | 70           |
+| 2316       | Sabo              | 70           |
+| 2317       | Koala             | 60           |
+| 2318       | Hack              | 70           |
+| 2319       | Emporio Ivankov   | 70           |
+| 2320       | Kuma              | 50           |
+
+---
+**Query #8**
+** -- List all courses along with the number of enrolled students.**
+
+    SELECT Courses.Course_ID AS CourseID, Course_Name, COUNT(Enrollment.Student_ID) AS EnrolledStudents 
+    FROM Courses
+    LEFT JOIN Enrollment
+    ON Courses.Course_ID = Enrollment.Course_ID
+    GROUP BY Courses.Course_ID, Course_Name;
+
+| CourseID | Course_Name               | EnrolledStudents |
+| -------- | ------------------------- | ---------------- |
+| 101      | Haki Technology           | 5                |
+| 102      | Physical Enhancement      | 4                |
+| 103      | Technological Advancement | 7                |
+| 104      | Devil Fruit Analysis      | 4                |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/8gvsRNWjA8E6ybLfePgpKA/13)
